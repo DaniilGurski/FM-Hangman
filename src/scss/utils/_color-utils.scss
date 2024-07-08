@@ -1,0 +1,22 @@
+@use "../abstracts/" as *;
+
+/* color utilities */
+.clr-dark-navy {
+    color: $clr-dark-navy;
+}
+.clr-blue{
+    color: $clr-blue
+}
+.clr-white {
+    color: $clr-white;
+}
+
+.bg-dark-navy {
+    background: $clr-dark-navy;
+}
+.bg-blue{
+    background: $clr-blue
+}
+.bg-white {
+    background: $clr-white;
+}

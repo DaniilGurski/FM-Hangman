@@ -1,0 +1,11 @@
+$colors: (
+    neutral: (
+        300: hsl(250, 69%, 27%),
+        200: hsl(223, 100%, 57%),
+        100: hsl(0, 0%, 100%),
+    )
+);
+
+$clr-dark-navy: var(--clr-neutral-300);
+$clr-blue: var(--clr-neutral-200);
+$clr-white: var(--clr-neutral-100);

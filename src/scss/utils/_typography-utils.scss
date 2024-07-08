@@ -1,0 +1,12 @@
+@use "../abstracts/" as *;
+
+/* typography utilities */
+.fs-tutorial-number {
+    font-size: var(--fs-tutorial-number);
+}
+.fs-tutorial-category {
+    font-size: var(--fs-tutorial-category);
+}
+.fs-tutorial-heading {
+    font-size: var(--fs-tutorial-heading);
+}

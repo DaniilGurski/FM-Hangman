@@ -1,0 +1,16 @@
+@use "../abstracts/" as *;
+
+:root {
+    @include convert_colors($colors);
+    @include convert_typography($typescales);
+
+    --fs-tutorial-heading: var(--fs-200);
+    --fs-tutorial-category: var(--fs-200);
+    --fs-tutorial-number: var(--fs-200);
+    
+
+    @include mq-min($medium-screen-size) {
+        --fs-tutorial-number: var(--fs-400);
+        --fs-tutorial-category: var(--fs-300);
+    }
+}

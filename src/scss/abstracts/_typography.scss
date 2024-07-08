@@ -1,0 +1,39 @@
+@use "functions" as *;
+
+// font families
+$font-family-primary: "Mouse Memoirs";
+
+// typography
+$typescales: (
+    small: (
+        700: rem(94),
+        600: rem(48),
+        500: rem(40),
+        400: rem(24), 
+        300: rem(24),
+        200: rem(24),
+        100: 1rem,
+    ),
+    
+    medium: (
+        700: rem(134),
+        600: rem(104),
+        500: rem(64),
+        400: rem(88),
+        300: rem(48),
+        200: rem(40),
+        100: rem(20),
+    ),
+
+    large: (
+        600: rem(134),
+        500: rem(88),
+        200: rem(48),
+        100: rem(26),
+    )
+);
+
+// variables
+$font-size-default-btn: rem(32);
+
+
