@@ -26,26 +26,26 @@ const cardContent = [
 
 export default function Tutorial() {
     return (
-      <>
-      <header className="menu-header | flex"> 
-        <RoundButton className="round-button" to="/" iconUrl={iconBackUrl} ariaText={"go back to menu"}/>
+      <div className="tutorial-page backdrop">
+        <header className="menu-header | flex"> 
+          <RoundButton className="round-button" to="/" iconUrl={iconBackUrl} ariaText={"go back to menu"}/>
 
-        <h1> How to Play </h1>
-      </header>
+          <h1> How to Play </h1>
+        </header>
 
-      <ul className="tutorial-cards">
-        {
-          cardContent.map(card => {
-            const {number, heading, body} = card;
-            return (
-              <li key={number}> 
-                <TutorialCard number={number} heading={heading} body={body}/> 
-              </li>
-            )
-          })
-        }
-      </ul>
-      </>
+        <ul className="tutorial-cards">
+          {
+            cardContent.map(card => {
+              const {number, heading, body} = card;
+              return (
+                <li key={number}> 
+                  <TutorialCard number={number} heading={heading} body={body}/> 
+                </li>
+              )
+            })
+          }
+        </ul>
+      </div>
     )
   }
   

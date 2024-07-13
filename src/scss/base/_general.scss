@@ -33,3 +33,16 @@ h2 {
     font-size: $font-size-h2;
     color: $clr-dark-navy;
 }
+
+
+.backdrop::before {
+    content: "";
+    display: inline-block;
+
+    position: absolute;
+    inset: 0;
+    z-index: -100;
+
+    background: $lg-backgrop;
+    opacity: .6;
+}
