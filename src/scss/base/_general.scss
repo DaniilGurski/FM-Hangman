@@ -2,5 +2,34 @@
 
 /* general */
 body {
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
 
+    background-image: url("/images/background-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+    @include mq-min($medium-screen-size) {
+        background-image: url("/images/background-tablet.svg");
+    }
+
+    @include mq-min($large-screen-size) {
+        background-image: url("/images/background-desktop.svg");
+    }
+}
+
+
+h1 {
+    @include heading($font-size: $font-size-h1);
+    background: $lg-text;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+h2 {
+    font-size: $font-size-h2;
+    color: $clr-dark-navy;
 }

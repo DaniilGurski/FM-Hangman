@@ -1,0 +1,59 @@
+@use '../abstracts/' as *;
+
+.tutorial-card {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: min-content 1fr;
+    grid-template-areas:
+    "number heading"
+    "body body";
+    align-items: center;
+
+    padding: rem(32);
+    background: $clr-white;
+    border-radius: 40px;
+
+    &__number {
+        grid-area: number;
+    }
+
+    &__heading {
+        grid-area: heading; 
+    }
+
+    &__body {
+        grid-area: body;
+    }
+
+    @include mq-min($medium-screen-size) {
+        column-gap: rem(40);
+
+        grid-template-areas:
+        "number heading"
+        "number-2 body";
+
+        padding-inline: rem(40);
+
+        &__number {
+            grid-row: span 2;
+        }
+    };
+
+    @include mq-min($large-screen-size) {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "number"
+        "heading"
+        "body";
+
+        padding: rem(60) rem(48);
+
+        text-align: center;
+
+        aspect-ratio: 2 / 3;
+
+        &__number {
+            grid-row: auto;
+        }
+    };
+}

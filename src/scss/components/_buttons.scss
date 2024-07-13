@@ -1,6 +1,62 @@
 @use "../abstracts/" as *;
 
 /* buttons */
+.button {
+    padding: rem(12) rem(64);
+    position: relative;
+    z-index: 100;
+
+    color: $clr-white;
+    background: $clr-blue;
+
+    border-radius: rem(40);
+
+    font-size: $font-size-default-btn;
+    text-transform: uppercase;
+
+    box-shadow: 
+    0px 3px 0px 4px $sd-dark-blue,
+    inset 0px 4px 0px 4px hsl(223, 100%, 62%);
+
+    &:hover, 
+    &:focus {
+        background: $lg-hover-overlay, $clr-blue;
+    }
+}
+
+
+.round-button {
+    --_icon-size: var(--icon-size, #{em(16)});
+
+    display: grid;
+    place-items: center;
+    position: relative;
+
+    padding: var(--button-size, em(12));
+
+    background: $lg-pink;
+
+    border-radius: 100%;
+    box-shadow: 0px 4px 0px 2px $clr-dark-gray;
+
+    &__icon {
+        width: var(--_icon-size);
+    } 
+
+    &:hover, 
+    &:focus {
+        background: $lg-hover-overlay, $lg-pink;
+    }
+
+    // add additonal box-shadow on larger devices and make button larger
+    @include mq-min($medium-screen-size) {
+        --icon-size: #{em(27)};
+        box-shadow: 0px 4px 0px 2px $clr-dark-gray,
+        inset 0px -4px 0px 0px hsl(274, 91%, 57%);
+    }
+}
+
+
 .burger-menu {
     --_burger-size: #{rem(30)};
     

@@ -1,11 +1,22 @@
 $colors: (
     neutral: (
+        400: hsl(215, 29%, 20%),
         300: hsl(250, 69%, 27%),
         200: hsl(223, 100%, 57%),
+        250: hsl(250, 35%, 62%),
         100: hsl(0, 0%, 100%),
     )
 );
 
+$clr-dark-gray: var(--clr-neutral-400);
 $clr-dark-navy: var(--clr-neutral-300);
 $clr-blue: var(--clr-neutral-200);
+$clr-purple: var(--clr-neutral-250);
 $clr-white: var(--clr-neutral-100);
+
+$lg-blue: linear-gradient(hsl(230, 56%, 47%), hsl(230, 100%, 24%));
+$lg-pink: linear-gradient(hsl(300, 99%, 72%), $clr-blue 185%);
+$lg-hover-overlay:  linear-gradient(hsla(0, 0%, 100%, 0.25), hsla(0, 0%, 100%, 0.25));
+$lg-text: linear-gradient(hsl(209, 100%, 70%) 20%, $clr-white);
+
+$sd-dark-blue: hsl(244, 76%, 23%);

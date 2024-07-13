@@ -1,0 +1,15 @@
+@use '../abstracts/' as *;
+
+.menu-header {  
+    justify-content: space-between;
+    align-items: center;
+
+    // filler 
+    @include mq-min($medium-screen-size) {
+        &::after {
+            content: "";
+            display: inline-block;
+            padding-inline: 2rem;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+@use '../abstracts/' as *;
+
+.main {
+    @include grid(rem(79));
+
+    @include mq-min($medium-screen-size) {
+        --gap: #{rem(100)};
+    }
+
+    @include mq-min($large-screen-size) {
+        --gap: #{rem(64)};
+    }
+}

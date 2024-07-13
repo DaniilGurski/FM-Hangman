@@ -2,7 +2,7 @@
 @use "sass:math";
 
 /* container */
-$container-max-width: 110ch;
+$container-max-width: 120ch;
 $container-padding-inline: 2rem;
 
 $breakout-max-width: 120ch;
@@ -10,10 +10,13 @@ $breakout-size: math.div(($breakout-max-width - $container-max-width), 2);
 
 
 .container {
+    display: grid;
+    align-items: center;
+
     width: min(90%, $container-max-width);
-    padding-inline: $container-padding-inline;
-    margin-inline: auto;
-}
+    height: 100%;
+    // padding-inline: $container-padding-inline;
+    margin-inline: auto;}
 
 
 .container-grid {

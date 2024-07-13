@@ -78,7 +78,7 @@
 
 @mixin grid($gap: 1rem) {
     display: grid;
-    gap: $gap;
+    gap: var(--gap, $gap);
 }
 
 
@@ -100,7 +100,7 @@
 
 
 // Basic heading 
-@mixin heading($font-size, $font-weight, $color: black) {
+@mixin heading($font-size, $font-weight: bold, $color: black) {
     font-size: $font-size; 
     font-weight: $font-weight;
     color: $color;

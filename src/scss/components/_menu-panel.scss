@@ -1,0 +1,21 @@
+@use '../abstracts/' as *;
+
+.menu-panel {
+    width: min(90%, rem(592));
+
+    &__logo {
+        width: clamp(rem(263), 48vw, rem(374));
+    }
+
+    &__start-button {
+        --icon-size: rem(52);
+        --button-size: #{rem(43)};
+        box-shadow: inset 0px -10px 0px 8px hsl(274, 91%, 57%), 
+                    0px 4px 0px 6px $clr-dark-gray;
+
+
+        @include mq-min($medium-screen-size) {
+            --round-button-size: #{rem(54)};
+        }
+    }
+}

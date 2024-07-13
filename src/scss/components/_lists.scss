@@ -1,0 +1,18 @@
+@use '../abstracts/' as *;
+
+.tutorial-cards {
+
+    @include list($row: "false", $item-gap: rem(24), $off-markers: "true");
+    grid-template-columns: 1fr;
+
+
+    @include mq-min($medium-screen-size) {
+        gap: rem(32);
+    }
+
+    @include mq-min($large-screen-size) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+ 
+    // @include list($item-gap: rem(32), $off-markers: "true");
+}
