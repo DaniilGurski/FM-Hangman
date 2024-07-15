@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import logoUrl from "/images/logo.svg";
-import iconBack from "/images/icon-back.svg";
 import iconPlayUrl from "/images/icon-play.svg";
 import RoundButton from "../components/RoundButton";
  

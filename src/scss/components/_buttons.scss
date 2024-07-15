@@ -2,26 +2,9 @@
 
 /* buttons */
 .button {
-    padding: rem(12) rem(64);
+    @include default-button();
     position: relative;
     z-index: 100;
-
-    color: $clr-white;
-    background: $clr-blue;
-
-    border-radius: rem(40);
-
-    font-size: $font-size-default-btn;
-    text-transform: uppercase;
-
-    box-shadow: 
-    0px 3px 0px 4px $sd-dark-blue,
-    inset 0px 4px 0px 4px hsl(223, 100%, 62%);
-
-    &:hover, 
-    &:focus {
-        background: $lg-hover-overlay, $clr-blue;
-    }
 }
 
 

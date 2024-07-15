@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
-import iconBackUrl from "/images/icon-back.svg"
-import RoundButton from "../components/RoundButton";
 import TutorialCard from "../components/TutorialCard";
+import MenuHeader from "../components/MenuHeader";
 
 const cardContent = [
   {
@@ -27,11 +25,7 @@ const cardContent = [
 export default function Tutorial() {
     return (
       <div className="tutorial-page backdrop">
-        <header className="menu-header | flex"> 
-          <RoundButton className="round-button" to="/" iconUrl={iconBackUrl} ariaText={"go back to menu"}/>
-
-          <h1> How to Play </h1>
-        </header>
+        <MenuHeader pageTitle={"How to play"}/>
 
         <ul className="tutorial-cards">
           {
