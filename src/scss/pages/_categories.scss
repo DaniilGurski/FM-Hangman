@@ -1,5 +1,5 @@
 @use '../abstracts/' as *;
 
 .categories-page {
-    --gap: clamp(#{rem(90)}, 4vw, #{rem(115)});
+    --gap: clamp(#{rem(80)}, 4vw, #{rem(115)});
 }

@@ -1,9 +1,17 @@
-import React from 'react'
-import { useParams } from 'react-router-dom';
+import { useState } from 'react'
+import GameHeader from '../components/GameHeader';
+
 
 export default function Game() {
-  console.log(useParams());
+  const totalHealth = 3;
+  const [currentHealth, setCurrentHealth] = useState(totalHealth);
+
   return (
-    <div>Game</div>
+    <div className="game-page | backdrop"> 
+      <GameHeader 
+      categoryName="placeholder" 
+      currentHealth={currentHealth} 
+      totalHealth={totalHealth}/>
+    </div>  
   )
 }

@@ -7,10 +7,16 @@
     --fs-tutorial-heading: var(--fs-200);
     --fs-tutorial-category: var(--fs-200);
     --fs-tutorial-number: var(--fs-200);
+    --fs-game-category: var(--fs-500);
 
     
     @include mq-min($medium-screen-size) {
         --fs-tutorial-number: var(--fs-400);
         --fs-tutorial-category: var(--fs-300);
+        --fs-game-category: var(--fs-300);
+    }
+    
+    @include mq-min($large-screen-size) {
+        --fs-game-category: var(--fs-400);
     }
 }

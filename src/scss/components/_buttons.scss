@@ -9,13 +9,13 @@
 
 
 .round-button {
-    --_icon-size: var(--icon-size, #{em(16)});
+    --_icon-size: var(--icon-size, #{rem(18)});
 
     display: grid;
     place-items: center;
     position: relative;
 
-    padding: var(--button-size, em(12));
+    padding: var(--button-size, em(14));
 
     background: $lg-pink;
 
@@ -33,7 +33,7 @@
 
     // add additonal box-shadow on larger devices and make button larger
     @include mq-min($medium-screen-size) {
-        --icon-size: #{em(27)};
+        --icon-size: #{em(21)};
         box-shadow: 0px 4px 0px 2px $clr-dark-gray,
         inset 0px -4px 0px 0px hsl(274, 91%, 57%);
     }

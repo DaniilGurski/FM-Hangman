@@ -1,0 +1,25 @@
+@use '../abstracts/' as *;
+
+.health-bar {
+    @include reset_appearence();
+    width: clamp(57px, 12vw, 240px);
+    height: rem(36);
+    
+    &::-webkit-progress-bar {
+        padding: rem(12);
+        border-radius: rem(96);
+        background-color: $clr-white;
+    }
+
+
+    &::-webkit-progress-value {
+        background-color: $clr-dark-navy;
+        border-radius: inherit;
+    }
+
+
+    &::-moz-progress-bar {
+        border-radius: rem(96);
+        background-color: $clr-white;
+    }
+}
