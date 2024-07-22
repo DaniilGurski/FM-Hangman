@@ -5,11 +5,8 @@
     padding-block: rem(138) rem(65);
     margin-inline: auto;
 
-    display: grid;
-    justify-items: center;
-    row-gap: var(--action-panel-gap, #{rem(58)});
-
     position: relative;
+    overflow: visible;
     
     background: $lg-blue;
     border-radius: 74px;
@@ -18,10 +15,36 @@
                 inset 6px 10px $clr-blue, 
                 inset -6px 10px $clr-blue;
 
+
+    > .grid {
+        justify-items: center;
+        row-gap: var(--action-panel-gap, #{rem(58)});
+    }
+
+
     &__header {
+        // in case the panel header is just plain text
+        font-size: $font-size-panel-heading; 
         position: absolute;
         top: 0;
-        transform: translateY(-35%);
+        transform: translateY(-40%);
+    }
+
+
+    &__buttons {
+        --gap: var(--button-spacing, 2rem);
+    }
+
+
+    // modal version 
+    &--fixed {
+        position: fixed;
+        inset: 0;
+
+        &::backdrop {
+            background: $lg-backgrop;
+            opacity: 0.5;
+        }
     }
 }
 

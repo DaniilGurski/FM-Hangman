@@ -2,7 +2,7 @@
 
 .health-bar {
     @include reset_appearence();
-    width: clamp(57px, 12vw, 240px);
+    width: clamp(110px, 12vw, 240px);
     height: rem(36);
     
     &::-webkit-progress-bar {

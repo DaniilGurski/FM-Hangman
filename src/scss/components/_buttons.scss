@@ -2,18 +2,29 @@
 
 /* buttons */
 .button {
-    @include default-button();
+    @include text-button();
+    padding: rem(12) rem(64);
+    border-radius: 40px;
+
     position: relative;
+    font-size: $font-size-default-btn;
     z-index: 100;
+
+    &--gradient {
+        --box-background: #{$lg-pink};
+        --box-inset-shadow: hsl(283, 96%, 62%);        
+    }
 }
 
 
 .round-button {
-    --_icon-size: var(--icon-size, #{rem(18)});
-
+    --_icon-size: var(--icon-size, 1rem);
+    flex-shrink: 0;
     display: grid;
     place-items: center;
     position: relative;
+
+    border: none;
 
     padding: var(--button-size, em(14));
 
@@ -30,6 +41,8 @@
     &:focus {
         background: $lg-hover-overlay, $lg-pink;
     }
+
+    cursor: pointer;
 
     // add additonal box-shadow on larger devices and make button larger
     @include mq-min($medium-screen-size) {

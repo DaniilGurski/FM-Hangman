@@ -84,6 +84,8 @@
 
 
 // Basic list 
+// TODO: remove margin: 0, padding: 0, list-style: none from here.
+// use ul[role=list] to reset list styling instead for accesability. 
 @mixin list($row: "false", $item-gap: 1rem, $off-markers: "false") {
     margin: 0;
     padding: 0;
@@ -117,30 +119,30 @@
 
 
 // project specific
-@mixin default-button($btn-font-size: $font-size-default-btn, $border-radius: rem(40), $padding: rem(12) rem(64) ) {
-    // FIXME: ---
-    display: grid;
-    place-items: center;
-
-    padding: $padding; 
-
-    color: $clr-white;
-    background: $clr-blue;
-
-    border-radius: $border-radius;
-
-    font-size: $btn-font-size;
-    text-transform: uppercase;
-
-    box-shadow: 
-    0px 3px 0px 4px $sd-dark-blue,
-    inset 0px 4px 0px 4px hsl(223, 100%, 62%);
+@mixin text-button() {
+    @include box-container();
 
     cursor: pointer;
 
     &:hover, 
     &:focus {
-        background: $lg-hover-overlay, $clr-blue;
+        background: $lg-hover-overlay, var(--_box-background);
     }
+}
+
+
+@mixin box-container() {
+    --_box-background: var(--box-background, #{$clr-blue});
+
+    display: grid;
+    place-items: center;
+
+    color: var(--box-text-color, #{$clr-white}); 
+    background: var(--_box-background);
+    box-shadow:
+    0px 3px 0px 4px $sd-dark-blue,
+    inset 0px 4px 0px 4px var(--box-inset-shadow, hsl(223, 100%, 62%));
+
+    text-transform: uppercase;
 }
 

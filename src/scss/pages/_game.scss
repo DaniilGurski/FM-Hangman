@@ -1,0 +1,10 @@
+@use '../abstracts/' as *;
+
+.game-page {
+    --gap: #{rem(136)};
+
+    &__mystery-word-section {
+        margin-bottom: rem(120);
+        
+    }
+}

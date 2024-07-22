@@ -1,0 +1,26 @@
+@use '../abstracts/' as *;
+
+.keyboard {
+    &__letter-group {
+        --gap: #{rem(24) #{rem(8)}};
+        flex-wrap: wrap;
+        font-size: $font-size-medium;
+
+        // > li {
+        //     flex: 1;
+        // }
+    }
+
+    &__letter-button {
+        width: min(8vw, 110px);
+        padding-block: rem(12);
+        color: $clr-dark-navy;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+
+        @include mq-min($medium-screen-size) {
+            border-radius: 24px;
+        }
+    }
+}

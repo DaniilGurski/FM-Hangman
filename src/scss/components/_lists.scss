@@ -21,13 +21,13 @@
     column-gap: 2rem;
 
     &__category {
-        @include default-button($btn-font-size: $font-size-category, $border-radius: rem(20), $padding: 0);
-
+        @include text-button();
+        font-size: $font-size-medium;
+        border-radius: rem(20);
         aspect-ratio: 8 / 2;
 
         @include mq-min($medium-screen-size) {
             aspect-ratio: 8 / 4;
-            padding: 0;
             border-radius: rem(40);
         }
     }

@@ -1,0 +1,33 @@
+@use '../abstracts/' as *;
+
+.mystery-word {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+
+    gap: clamp(rem(12), 4vw, 1rem);
+
+    &__letter-group {
+        --gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    // each will go inside another div on higher level, representing a row
+    &__letter {
+        @include box-container();
+        width: min(12vw, 88px);
+
+        font-size: $font-size-mystery-word;
+        border-radius: rem(12);
+        padding-block: rem(12);
+        color: transparent;
+        opacity: .25;
+        user-select: none;
+
+        @include mq-min($medium-screen-size) {
+            border-radius: rem(40);
+        }
+    }
+}   
