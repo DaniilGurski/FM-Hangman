@@ -5,7 +5,6 @@
     justify-content: center;
     flex-wrap: wrap;
 
-
     gap: clamp(rem(12), 4vw, 1rem);
 
     &__letter-group {
@@ -26,8 +25,27 @@
         opacity: .25;
         user-select: none;
 
+
+        &--revealed {
+            opacity: 1;
+            color: $clr-white;
+        }
+
         @include mq-min($medium-screen-size) {
             border-radius: rem(40);
+        }
+    }
+
+    // create space block between words
+    @include mq-min($medium-screen-size) {
+        > li:not(:last-child) {
+            display: flex;
+
+            &::after {
+                content: "";
+                width: min(12vw, 88px);
+                aspect-ratio: 1;
+            }
         }
     }
 }   

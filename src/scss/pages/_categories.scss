@@ -1,5 +1,6 @@
 @use '../abstracts/' as *;
 
+// FIXME: this causes text overflow 
 .categories-page {
-    --gap: clamp(#{rem(80)}, 4vw, #{rem(115)});
+    @include grid($gap: clamp(#{rem(80)}, 4vw, #{rem(115)}));
 }

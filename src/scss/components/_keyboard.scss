@@ -6,6 +6,7 @@
         flex-wrap: wrap;
         font-size: $font-size-medium;
 
+        // This can be added, but we can play around with nth child to not apply this rule for last letter
         // > li {
         //     flex: 1;
         // }
