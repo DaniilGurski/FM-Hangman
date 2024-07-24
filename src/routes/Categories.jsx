@@ -6,7 +6,7 @@ export default function Categories() {
   const categories = getGameData();
 
   return (
-    <div className="categories-page backdrop grid">
+    <div className="categories-page backdrop">
       <MenuHeader pageTitle={"Pick a Category"}/>
 
       <ul className="category-list">

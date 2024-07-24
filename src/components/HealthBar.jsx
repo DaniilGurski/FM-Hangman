@@ -3,15 +3,16 @@ import { gameContext } from "../routes/Game"
 
 
 export default function HealthBar() {
-  const { currentHealth, totalHealth } = useContext(gameContext); 
+  const { currentHealth, TOTAL_HEALTH } = useContext(gameContext); 
 
   return (
     <>
       <progress className="health-bar" 
       value={currentHealth} 
-      max={totalHealth}
+      max={TOTAL_HEALTH}
       aria-valuenow={currentHealth}
-      aria-valuemax={totalHealth}
+      aria-valuemax={TOTAL_HEALTH}
+      aria-label="Health bar"
       >
       </progress>
 

@@ -1,5 +1,5 @@
 
-import { createContext, useEffect, useRef, useState } from 'react'
+import { createContext, useEffect, useRef, useState, useMemo } from 'react'
 import { useParams } from 'react-router-dom';
 import { getCategoryNames, getGameData } from '../gameData';
 import GameHeader from '../components/GameHeader';
@@ -19,9 +19,9 @@ export default function Game() {
 
   const [mysteryWord, setMysteryWord] = useState("");
   const [currentHealth, setCurrentHealth] = useState(TOTAL_HEALTH);
+  const [revealedLetters, setRevealedLetters] = useState([]);
   
   const actionPanelRef = useRef(null);
-  const revealedLetters = useRef([]);
 
 
   function handlePanelOpening() {
@@ -29,32 +29,47 @@ export default function Game() {
   }
 
 
+  function handleLetterBlockClick(e) {
+    const selectedLetter = e.target.innerText;
+
+    if (mysteryWord.includes(selectedLetter)) {
+      setRevealedLetters([...revealedLetters, selectedLetter]);
+      return
+    }
+
+    setCurrentHealth(currentHealth => currentHealth - 1);
+  }
+
+
   function chooseNewWord() {
     const randomWordIndex = Math.floor(Math.random() * getGameData()[currentCategoryName].length);
 
-    setMysteryWord(currentCategoryData[randomWordIndex].name);
+    setMysteryWord(currentCategoryData[randomWordIndex].name.toLowerCase());
   }
 
 
   useEffect(() => chooseNewWord(), []);
   useEffect(() => console.log(`new word to be guessed is '${mysteryWord}'`, [mysteryWord]))
+  useEffect(() => {
+    if (!currentHealth) {
+      console.log("game end")
+    }
+    console.log(`current health: ${currentHealth}`);
+  }, [currentHealth]);
+
 
   return (
     <div className="game-page | backdrop"> 
-      <gameContext.Provider value={{ revealedLetters, currentHealth, TOTAL_HEALTH }}>
-        <GameHeader 
-        categoryName="placeholder" 
-        onMenuClick={handlePanelOpening} />
-
+      <gameContext.Provider value={{ revealedLetters, currentHealth, mysteryWord, TOTAL_HEALTH }}>
+        <GameHeader categoryName="placeholder" onMenuClick={handlePanelOpening} />
 
         <section className="game-page__mystery-word-section"> 
           <ul className="mystery-word" role="list"> 
             {
-              mysteryWord &&
-              mysteryWord.split(" ").map(word => {
+              mysteryWord.split(" ").map((word, index) => {
                 return (
-                  <li key={word}>
-                    <LetterBlocks word={word} />
+                  <li key={`${word}-${index}`}>
+                    <LetterBlocks word={word} wordIndex={index}/>
                   </li>
                 )
               })
@@ -63,9 +78,8 @@ export default function Game() {
         </section>
 
         <section className="game-page__keyboard-section"> 
-          <Keyboard />
+          <Keyboard onLetterBlockClick={handleLetterBlockClick}/>
         </section>
-
 
         <OverlayPortal>
           <GameActionPanel ref={actionPanelRef}/>
@@ -74,3 +88,16 @@ export default function Game() {
     </div>  
   )
 }
+
+/*
+TODO:
+Завершение игры:
+Если не осталось hp, открыть модалку со соответсвуюшей надписью
+Если победа, открыть модалку со соответсвуюшей надписью
+В режиме окончания игры кнопка continue должна выполнять иную функцию
+
+Победа:
+Каждый рендер проверить или загадное слово имеет все revealed letters (с помошью .every() ?)
+
+Нам нужен некий state для завершения работы ?
+*/
