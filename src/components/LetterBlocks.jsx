@@ -3,7 +3,9 @@ import { gameContext } from "../routes/Game"
 
 
 export default function letterBlocks({ word, wordIndex }) {
-    const { revealedLetters, mysteryWord } = useContext(gameContext);
+    const { game } = useContext(gameContext);
+    const revealedLetters = game.revealedLetters;
+    
     return (
         <ul className="mystery-word__letter-group | flex" role="list">
             {

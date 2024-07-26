@@ -1,18 +1,54 @@
+import { TOTAL_HEALTH } from "./gameData"
+
+
 export const GAME_INITIAL_STATE = {
-    currentHealth: null,
-    gameStatus: "running",
-    mysteryLetters: [],
+    isRunning: true,
+    currentHealth: TOTAL_HEALTH,
+    mysteryWord: "",
+    panelText: "paused",
+    revealedLetters: [],
 }
 
 export default function currentGameReducer(state, action) {
     switch (action.type) {
-        case "new game":
-            return state
-        case "set status":
-            return state
-        case "decrement attempts":
-            return state
-        default:
-            return state
+        case "choose new word":
+            return {
+                isRunning: true,
+                currentHealth: TOTAL_HEALTH,
+                mysteryWord: action.payload,
+                panelText: "paused",
+                revealedLetters: [],
+            }
+
+        case "set modal text": {
+            return {
+                ...state,
+                panelText: action.payload
+            }
+        }
+
+        case "add revealed letter": {
+            return {
+                ...state, 
+                revealedLetters: [...state.revealedLetters, action.payload],
+            }
+        }
+
+        case "decrement attempts": {
+            return {
+                ...state, 
+                currentHealth: state.currentHealth - 1
+            }
+        }
+
+        case "end game": {
+            return {
+                ...state, 
+                panelText: action.payload,
+                isRunning: false,
+            }
+        }
+
+        default: return state
     }
 }

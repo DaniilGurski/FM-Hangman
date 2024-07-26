@@ -3,7 +3,8 @@ import { gameContext } from "../routes/Game"
 
 
 export default function HealthBar() {
-  const { currentHealth, TOTAL_HEALTH } = useContext(gameContext); 
+  const { TOTAL_HEALTH, game } = useContext(gameContext); 
+  const { currentHealth } = game;
 
   return (
     <>

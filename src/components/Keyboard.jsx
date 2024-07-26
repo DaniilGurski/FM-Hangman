@@ -3,6 +3,7 @@
 export default function Keyboard({ onLetterBlockClick }) {
   const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split("");
 
+  // TODO: disable button when its clicked
   return (
     <ul className="keyboard__letter-group | flex" role="list">
         {
