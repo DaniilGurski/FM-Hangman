@@ -26,6 +26,7 @@ export default function Game() {
   }, [currentCategoryIndex]);
 
   const [game, dispatch] = useReducer(currentGameReducer, GAME_INITIAL_STATE);
+
   const { mysteryWord, currentHealth } = game 
   const actionPanelRef = useRef(null);
 
@@ -37,6 +38,9 @@ export default function Game() {
 
   function handleLetterBlockClick(e) {
     const selectedLetter = e.target.innerText;
+    const button = e.target;
+
+    dispatch({type: CURRENT_GAME_ACTIONS.ADD_DISABLED_LETTER, payload: button});
 
     if (mysteryWord.includes(selectedLetter)) {
       dispatch({type: CURRENT_GAME_ACTIONS.ADD_REVEALED_LETTER, payload: selectedLetter})
@@ -83,7 +87,7 @@ export default function Game() {
 
   return (
     <div className="game-page | backdrop"> 
-      <gameContext.Provider value={{ TOTAL_HEALTH, game, dispatch, startNewGame }}>
+      <gameContext.Provider value={{ TOTAL_HEALTH, game, dispatch, startNewGame, disabledLetters }}>
         <GameHeader categoryName="placeholder" onMenuClick={handlePanelOpening}/>
 
         <section className="game-page__mystery-word-section"> 

@@ -7,6 +7,7 @@ export const GAME_INITIAL_STATE = {
     mysteryWord: "",
     panelText: "paused",
     revealedLetters: [],
+    disabledLetters: [],
 }
 
 export default function currentGameReducer(state, action) {
@@ -18,6 +19,7 @@ export default function currentGameReducer(state, action) {
                 mysteryWord: action.payload,
                 panelText: "paused",
                 revealedLetters: [],
+                disabledLetters: [],
             }
 
         case "set modal text": {
@@ -31,6 +33,13 @@ export default function currentGameReducer(state, action) {
             return {
                 ...state, 
                 revealedLetters: [...state.revealedLetters, action.payload],
+            }
+        }
+
+        case "add disabled letter": {
+            return {
+                ...state,
+                disabledLetters: [...state.disabledLetters, action.payload]
             }
         }
 

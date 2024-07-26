@@ -23,5 +23,9 @@
         @include mq-min($medium-screen-size) {
             border-radius: 24px;
         }
+
+        &:disabled {
+            opacity: .45;
+        }
     }
 }
