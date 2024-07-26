@@ -87,7 +87,7 @@ export default function Game() {
 
   return (
     <div className="game-page | backdrop"> 
-      <gameContext.Provider value={{ TOTAL_HEALTH, game, dispatch, startNewGame, disabledLetters }}>
+      <gameContext.Provider value={{ TOTAL_HEALTH, game, dispatch, startNewGame }}>
         <GameHeader categoryName="placeholder" onMenuClick={handlePanelOpening}/>
 
         <section className="game-page__mystery-word-section"> 
@@ -128,27 +128,3 @@ TODO:
 
 Нам нужен некий state для завершения работы ?
 */
-
-
-// const [isRunning, setIsRunning] = useState(true);
-// const [panelText, setPanelText] = useState("");
-// const [mysteryWord, setMysteryWord] = useState("");
-// const [currentHealth, setCurrentHealth] = useState(TOTAL_HEALTH);
-// const [revealedLetters, setRevealedLetters] = useState([]);
-
-// function handlePanelClosing() {
-//   if (!isRunning) {
-//     console.log("choosing new word...");
-//   }
-//   actionPanelRef.current.close();
-// }
-
-  // useEffect(() => {
-  //   if (!currentHealth) {
-  //     handlePanelOpening("You Lose")
-  //     setIsRunning(false)
-
-  //   }
-
-  //   console.log(`current health: ${currentHealth}`);
-  // }, [currentHealth]);
