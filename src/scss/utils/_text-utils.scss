@@ -10,3 +10,7 @@
     text-decoration: underline;
     text-underline-offset: var(--underline-offset);
 }
+
+.capitalize {
+    text-transform: capitalize;
+}
