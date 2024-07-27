@@ -1,10 +1,16 @@
-import { createContext, useEffect, useRef, useState, useMemo, useReducer } from 'react'
+// react
+import { createContext, useEffect, useRef, useMemo, useReducer } from 'react'
 import { useParams } from 'react-router-dom';
+
+// data
+import { TOTAL_HEALTH } from '../gameData';
 import { getCategoryNames, getGameData } from '../gameData';
 
+// reducer 
 import { CURRENT_GAME_ACTIONS } from '../currentGameActions';
-import { TOTAL_HEALTH } from '../gameData';
 import currentGameReducer, { GAME_INITIAL_STATE } from '../currentGameReducer';
+
+// components 
 import GameHeader from '../components/GameHeader';
 import OverlayPortal from '../components/OverlayPortal';
 import GameActionPanel from '../components/GameActionPanel';
@@ -27,14 +33,29 @@ export default function Game() {
 
   const [game, dispatch] = useReducer(currentGameReducer, GAME_INITIAL_STATE);
 
-  const { mysteryWord, currentHealth } = game 
+  const { mysteryWord, currentHealth, revealedLetters } = game 
   const actionPanelRef = useRef(null);
 
+
+  function startNewGame() {
+    const newWord = chooseNewWord();
+    dispatch({type: CURRENT_GAME_ACTIONS.CHOOSE_NEW_WORD, payload: newWord});
+  }
+
+  function chooseNewWord() {
+    const randomWordIndex = Math.floor(Math.random() * getGameData()[currentCategoryName].length);
+
+    return currentCategoryData[randomWordIndex].name.toLowerCase();
+  }
 
   function handlePanelOpening() {
     actionPanelRef.current.showModal();
   }
 
+  function handleEndingPanelOpening(gameResultText) {
+    handlePanelOpening();
+    dispatch({type: CURRENT_GAME_ACTIONS.END_GAME, payload: gameResultText})
+  }
 
   function handleLetterBlockClick(e) {
     const selectedLetter = e.target.innerText;
@@ -51,44 +72,42 @@ export default function Game() {
   }
 
 
-  function chooseNewWord() {
-    const randomWordIndex = Math.floor(Math.random() * getGameData()[currentCategoryName].length);
-
-    return currentCategoryData[randomWordIndex].name.toLowerCase();
-  }
-
-
-  function startNewGame() {
-    const newWord = chooseNewWord();
-    dispatch({type: CURRENT_GAME_ACTIONS.CHOOSE_NEW_WORD, payload: newWord});
-  }
-
-
   // choosing new word
   useEffect(startNewGame, []);
 
-
-  // health
+  // controlling the amount of remaining health, loss condition
   useEffect(() => {
     if (currentHealth < 1) {
-      handlePanelOpening();
-      dispatch({type: CURRENT_GAME_ACTIONS.END_GAME, payload: "You Lose"})
+      return handleEndingPanelOpening("You Lose")
     }
 
     console.log(`current health: ${currentHealth}`);
   }, [currentHealth]);
 
+  // control, if all letters are guessed, winning condition
+  useEffect(() => {
+    // get unqiue letters from mystery word without spaces
+    const mysterWordLetters = Array.from(new Set(mysteryWord.split("").filter(letter => letter !== " ")));
+
+    if (mysterWordLetters.length < 1) {
+      return
+    }
+
+    if (revealedLetters.length === mysterWordLetters.length) {
+      return handleEndingPanelOpening("You Won")
+    }
+  }, [revealedLetters]);
 
   // debugging 
-  useEffect(() => {
-    console.log(game);
-  }, [game])
+  // useEffect(() => {
+  //   console.log(game);
+  // }, [game])
 
 
   return (
     <div className="game-page | backdrop"> 
       <gameContext.Provider value={{ TOTAL_HEALTH, game, dispatch, startNewGame }}>
-        <GameHeader categoryName="placeholder" onMenuClick={handlePanelOpening}/>
+        <GameHeader categoryName={currentCategoryName} onMenuClick={handlePanelOpening}/>
 
         <section className="game-page__mystery-word-section"> 
           <ul className="mystery-word" role="list"> 
@@ -115,16 +134,3 @@ export default function Game() {
     </div>  
   )
 }
-
-/*
-TODO:
-Завершение игры:
-Если не осталось hp, открыть модалку со соответсвуюшей надписью
-Если победа, открыть модалку со соответсвуюшей надписью
-В режиме окончания игры кнопка continue должна выполнять иную функцию
-
-Победа:
-Каждый рендер проверить или загадное слово имеет все revealed letters (с помошью .every() ?)
-
-Нам нужен некий state для завершения работы ?
-*/
