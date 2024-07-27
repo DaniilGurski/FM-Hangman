@@ -13,7 +13,7 @@ export default function GameHeader({ categoryName, onMenuClick }) {
               <img className="round-button__icon" src={menuIcon} alt="" />
             </button>
 
-            <h2 className="clr-white fs-game-category"> { categoryName } </h2>
+            <h2 className="clr-white fs-game-category capitalize"> { categoryName } </h2>
         </div>
 
         <div className="game-header__right | flex">
