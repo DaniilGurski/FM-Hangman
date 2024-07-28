@@ -3,6 +3,7 @@
 /* buttons */
 .button {
     @include text-button();
+    border: none;
     padding: rem(12) rem(64);
     border-radius: 40px;
 

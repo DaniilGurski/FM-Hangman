@@ -1,10 +1,18 @@
 @use '../abstracts/' as *;
 
 .game-page {
-    --gap: #{rem(136)};
+    --gap: #{rem(88)};
+    margin-block: rem(46) rem(162);
 
-    &__mystery-word-section {
-        margin-bottom: rem(120);
-        
+    @include mq-min($medium-screen-size) {
+        margin-block: rem(62) rem(112);
+    }
+
+    @include mq-min($large-screen-size) {
+        margin-bottom: rem(78);
+    }
+
+    > .grid {
+        --gap: #{rem(117)};
     }
 }

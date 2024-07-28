@@ -2,13 +2,14 @@
 
 /* general */
 body {
+    overflow-y: scroll;
     position: relative;
-
+    
     font-family: $font-family-primary;
     font-size: $font-size-base;
 
     background-image: url("/images/background-mobile.svg");
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-size: cover;
 
 
@@ -18,6 +19,20 @@ body {
 
     @include mq-min($large-screen-size) {
         background-image: url("/images/background-desktop.svg");
+    }
+
+    // darken background image
+    &:has(.backdrop) {
+        background-image: $lg-backgrop, url("/images/background-mobile.svg");
+
+        @include mq-min($medium-screen-size) {
+            background-image: $lg-backgrop, url("/images/background-tablet.svg");
+        }
+
+
+        @include mq-min($large-screen-size) {
+            background-image: $lg-backgrop, url("/images/background-desktop.svg");
+        }
     }
 }
 

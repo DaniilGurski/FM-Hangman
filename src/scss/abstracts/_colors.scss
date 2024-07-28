@@ -18,6 +18,6 @@ $lg-blue: linear-gradient(hsl(230, 56%, 47%), hsl(230, 100%, 24%));
 $lg-pink: linear-gradient(hsl(300, 99%, 72%), $clr-blue 185%);
 $lg-hover-overlay:  linear-gradient(hsla(0, 0%, 100%, 0.25), hsla(0, 0%, 100%, 0.25));
 $lg-text: linear-gradient(hsl(209, 100%, 70%) 20%, $clr-white);
-$lg-backgrop: linear-gradient(hsl(264, 87%, 12%) 0%, hsl(242, 74%, 27%) 70%, hsl(253, 69%, 28%) 100%);
+$lg-backgrop: linear-gradient(hsla(264, 87%, 12%, .6) 0%, hsla(242, 74%, 27%, .6) 70%, hsla(253, 69%, 28%, .6) 100%);
 
 $sd-dark-blue: hsl(244, 76%, 23%);
