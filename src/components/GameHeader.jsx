@@ -9,7 +9,7 @@ export default function GameHeader({ categoryName, onMenuClick }) {
   return (
     <header className="game-header | flex">
         <div className="game-header__left | flex">
-            <button className="round-button" onClick={() => onMenuClick("paused")}> 
+            <button className="round-button" aria-label="open menu" onClick={() => onMenuClick("paused")} > 
               <img className="round-button__icon" src={menuIcon} alt="" />
             </button>
 
