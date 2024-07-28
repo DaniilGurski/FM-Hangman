@@ -105,27 +105,30 @@ export default function Game() {
 
 
   return (
-    <div className="game-page | backdrop"> 
+    <div className="game-page | grid | backdrop"> 
       <gameContext.Provider value={{ TOTAL_HEALTH, game, dispatch, startNewGame }}>
+
         <GameHeader categoryName={currentCategoryName} onMenuClick={handlePanelOpening}/>
 
-        <section className="game-page__mystery-word-section"> 
-          <ul className="mystery-word" role="list"> 
-            {
-              mysteryWord.split(" ").map((word, index) => {
-                return (
-                  <li key={`${word}-${index}`}>
-                    <LetterBlocks word={word} wordIndex={index}/>
-                  </li>
-                )
-              })
-            }
-          </ul>
-        </section>
+        <div className="grid">
+          <section className="game-page__mystery-word-section"> 
+            <ul className="mystery-word" role="list"> 
+              {
+                mysteryWord.split(" ").map((word, index) => {
+                  return (
+                    <li key={`${word}-${index}`}>
+                      <LetterBlocks word={word} wordIndex={index}/>
+                    </li>
+                  )
+                })
+              }
+            </ul>
+          </section>
 
-        <section className="game-page__keyboard-section"> 
-          <Keyboard onLetterBlockClick={handleLetterBlockClick}/>
-        </section>
+          <section className="game-page__keyboard-section"> 
+            <Keyboard onLetterBlockClick={handleLetterBlockClick}/>
+          </section>
+        </div>
 
         <OverlayPortal>
           <GameActionPanel ref={actionPanelRef}/>
