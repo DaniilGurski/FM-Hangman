@@ -17,7 +17,7 @@ function GameActionPanel({}, ref) {
   return (
     <dialog className="action-panel action-panel--fixed" id="game-panel" ref={ref}>
       <div className="grid">
-        <span className="action-panel__header gradient-heading"> {panelText} </span>
+        <h2 className="action-panel__header gradient-heading | capitalize" aria-live="polite"> {panelText} </h2>
 
         <div className="action-panel__buttons | grid"> 
             <button className="button" onClick={handlePanelClosing}> Continue </button>

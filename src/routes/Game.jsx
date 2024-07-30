@@ -33,7 +33,9 @@ export default function Game() {
 
   const [game, dispatch] = useReducer(currentGameReducer, GAME_INITIAL_STATE);
 
-  const { mysteryWord, currentHealth, revealedLetters } = game 
+  const { mysteryWord, currentHealth, revealedLetters } = game
+  // get unqiue letters from mystery word without spaces 
+  const mysterWordLetters = Array.from(new Set(mysteryWord.split("").filter(letter => letter !== " ")));
   const actionPanelRef = useRef(null);
 
 
@@ -71,7 +73,6 @@ export default function Game() {
     dispatch({type: CURRENT_GAME_ACTIONS.DECREMENT_ATTEMPTS})
   }
 
-
   // choosing new word
   useEffect(startNewGame, []);
 
@@ -86,9 +87,6 @@ export default function Game() {
 
   // control, if all letters are guessed, winning condition
   useEffect(() => {
-    // get unqiue letters from mystery word without spaces
-    const mysterWordLetters = Array.from(new Set(mysteryWord.split("").filter(letter => letter !== " ")));
-
     if (mysterWordLetters.length < 1) {
       return
     }
@@ -99,9 +97,9 @@ export default function Game() {
   }, [revealedLetters]);
 
   // debugging 
-  // useEffect(() => {
-  //   console.log(game);
-  // }, [game])
+  useEffect(() => {
+    console.log(game);
+  }, [game])
 
 
   return (
@@ -112,6 +110,10 @@ export default function Game() {
 
         <div className="grid">
           <section className="game-page__mystery-word-section"> 
+            <h2 className="visually-hidden" aria-live="assertive"> 
+              {revealedLetters.length} of {mysterWordLetters.length} letters guessed 
+            </h2>
+
             <ul className="mystery-word" role="list"> 
               {
                 mysteryWord.split(" ").map((word, index) => {

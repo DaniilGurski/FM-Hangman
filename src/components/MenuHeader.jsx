@@ -7,7 +7,7 @@ export default function MenuHeader({ pageTitle }) {
     <header className="menu-header | flex"> 
         <LinkRoundButton className="round-button" to="/" icon={iconBackUrl} ariaText={"go back to menu"}/>
 
-        <h1> {pageTitle} </h1>
+        <h1 className="heading-1"> {pageTitle} </h1>
     </header>
   )
 }
