@@ -110,9 +110,9 @@ export default function Game() {
 
         <div className="grid">
           <section className="game-page__mystery-word-section"> 
-            <h2 className="visually-hidden" aria-live="assertive"> 
+            <span className="visually-hidden" aria-live="assertive"> 
               {revealedLetters.length} of {mysterWordLetters.length} letters guessed 
-            </h2>
+            </span>
 
             <ul className="mystery-word" role="list"> 
               {
