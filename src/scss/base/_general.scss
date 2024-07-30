@@ -37,7 +37,7 @@ body {
 }
 
 
-h1, .gradient-heading {
+.heading-1, .gradient-heading {
     @include heading($font-size: $font-size-h1);
     background: $lg-text;
     background-clip: text;
@@ -46,7 +46,7 @@ h1, .gradient-heading {
 }
 
 
-h2 {
+.heading-2 {
     text-transform: uppercase;
     font-size: $font-size-h2;
     color: $clr-dark-navy;
