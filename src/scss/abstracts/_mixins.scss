@@ -1,7 +1,7 @@
 @use "colors"    as *;
 @use "typography" as *;
 @use "functions" as *;
-@use "breakpoints" as *; //TODO: add to main
+@use "breakpoints" as *;
 @use "sass:math";
 
 
@@ -20,7 +20,6 @@
 }
 
 
-// TODO: change underscore to -
 // Convert color map either into css custom properties
 @mixin convert_colors($color-map) {
     @each $role, $shades in $color-map {
@@ -35,7 +34,6 @@
 // Convert map with typography related values either into css custom properties 
 @mixin convert_typography($typescales) {   
     @each $screen-size, $typescale in $typescales {
-        // TODO: Add to main: fixes issue if there are three typescales
         @if $screen-size == small {
             @each $scale, $value in $typescale {
                 --fs-#{$scale}: #{$value};
@@ -84,8 +82,6 @@
 
 
 // Basic list 
-// TODO: remove margin: 0, padding: 0, list-style: none from here.
-// use ul[role=list] to reset list styling instead for accesability. 
 @mixin list($row: "false", $item-gap: 1rem, $off-markers: "false") {
     margin: 0;
     padding: 0;

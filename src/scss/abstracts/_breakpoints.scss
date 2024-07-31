@@ -6,4 +6,4 @@ $breakpoints: (
 
 $small-screen-size: map-get($breakpoints, "small");
 $medium-screen-size: map-get($breakpoints, "medium");
-$large-screen-size: map-get($breakpoints, "large"); // TODO: add "" in main
+$large-screen-size: map-get($breakpoints, "large");
