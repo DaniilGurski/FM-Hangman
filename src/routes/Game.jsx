@@ -116,8 +116,10 @@ export default function Game() {
 
             <ul className="mystery-word" role="list"> 
               {
+                // The guessed word is split into several lines, in case the word consists of several lines. 
                 mysteryWord.split(" ").map((word, index) => {
                   return (
+                    // A new row is created for each word. Inside it there is another list of letters of this word.
                     <li key={`${word}-${index}`}>
                       <LetterBlocks word={word} wordIndex={index}/>
                     </li>

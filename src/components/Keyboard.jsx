@@ -1,7 +1,6 @@
 import { useContext, useRef } from "react";
 import { gameContext } from "../routes/Game";
 
-
 export default function Keyboard({ onLetterBlockClick }) {
   const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split("");
   const { game } = useContext(gameContext);

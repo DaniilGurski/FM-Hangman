@@ -1,11 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { gameContext } from "../routes/Game";
-import { CURRENT_GAME_ACTIONS } from "../currentGameActions";
 
 function GameActionPanel({}, ref) {
   const { game, dispatch, startNewGame} = useContext(gameContext);
-  const { panelText, isRunning } = game;
+    const { panelText, isRunning } = game;
 
   function handlePanelClosing() {
     if (!isRunning) {

@@ -1,9 +1,5 @@
-import { useContext } from "react";
 import menuIcon from "/images/icon-menu.svg";
 import HealthBar from "./HealthBar";
-import { gameContext } from "../routes/Game";
-import { CURRENT_GAME_ACTIONS } from "../currentGameActions";
-
 
 export default function GameHeader({ categoryName, onMenuClick }) {  
   return (

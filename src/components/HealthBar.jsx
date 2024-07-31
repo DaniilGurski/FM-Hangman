@@ -1,7 +1,6 @@
 import { useContext } from "react"
 import { gameContext } from "../routes/Game"
 
-
 export default function HealthBar() {
   const { TOTAL_HEALTH, game } = useContext(gameContext); 
   const { currentHealth } = game;
